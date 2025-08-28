@@ -233,8 +233,7 @@ export default function HomePage() {
               }}
               aria-label="Connect wallet"
             >
-              <span className="hidden 2xl:inline">CONNECT WALLET</span>
-              <span className="inline 2xl:hidden">CONNECT</span>
+              <span className="whitespace-nowrap">CONNECT WALLET</span>
             </button>
           </div>
         </div>
