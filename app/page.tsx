@@ -90,9 +90,9 @@ export default function HomePage() {
             : ""
         }`}
       >
-        <div className="relative mx-12 mt-10 flex items-center justify-between px-6 py-4">
+        <div className="relative mx-10 mt-8 flex items-center justify-between px-5 py-3">
           {/* -- Left cluster: brand + nav -- */}
-          <div className="relative flex min-w-0 items-center gap-[clamp(12px,1.2vw,24px)]">
+          <div className="relative flex min-w-0 items-center gap-[clamp(10px,1vw,20px)]">
             {/* Brand (disabled link to avoid route change) */}
             <Link
               href="/"
@@ -102,7 +102,8 @@ export default function HomePage() {
               <span
                 className="whitespace-nowrap leading-none tracking-wide"
                 style={{
-                  fontSize: "clamp(28px, 3.2vw, 72px)",
+                  /* was clamp(28px, 3.2vw, 72px) */
+                  fontSize: "clamp(26px,3vw,64px)",
                   color: "#B8AEC6",
                   WebkitTextStroke: "2px white",
                   textTransform: "none",
@@ -112,14 +113,15 @@ export default function HomePage() {
               </span>
             </Link>
 
-            <span className="h-[clamp(24px,2.5vw,40px)] w-[2px] bg-white/60" />
+            <span className="h-[clamp(20px,2vw,34px)] w-[2px] bg-white/60" />
 
             {/* Main navigation */}
             <nav
               className="flex min-w-0 items-center whitespace-nowrap"
               style={{
-                columnGap: "clamp(10px, 1.0vw, 40px)",
-                fontSize: "clamp(13px, 1.25vw, 24px)",
+                /* was clamp(10px,1.0vw,40px) / clamp(13px,1.25vw,24px) */
+                columnGap: "clamp(8px,0.9vw,28px)",
+                fontSize: "clamp(12px,1.1vw,20px)",
                 fontWeight: 800,
               }}
             >
@@ -150,7 +152,7 @@ export default function HomePage() {
           {/* -- Right cluster: social icons + connect -- */}
           <div
             className="flex shrink-0 items-center"
-            style={{ columnGap: "clamp(8px, 0.9vw, 24px)" }}
+            style={{ columnGap: "clamp(8px,0.8vw,18px)" }}
           >
             {/* Magic Eden */}
             <a
@@ -167,8 +169,9 @@ export default function HomePage() {
                 alt="Magic Eden"
                 className="select-none"
                 style={{
-                  width: "clamp(18px, 1.8vw, 40px)",
-                  height: "clamp(18px, 1.8vw, 40px)",
+                  /* was max 40px */
+                  width: "clamp(18px,1.6vw,34px)",
+                  height: "clamp(18px,1.6vw,34px)",
                 }}
               />
             </a>
@@ -188,8 +191,9 @@ export default function HomePage() {
                 alt="Twitter"
                 className="select-none"
                 style={{
-                  width: "clamp(16px, 1.4vw, 30px)",
-                  height: "clamp(16px, 1.4vw, 30px)",
+                  /* was max 30px */
+                  width: "clamp(14px,1.2vw,26px)",
+                  height: "clamp(14px,1.2vw,26px)",
                 }}
               />
             </a>
@@ -209,8 +213,8 @@ export default function HomePage() {
                 alt="Discord"
                 className="select-none"
                 style={{
-                  width: "clamp(18px, 1.8vw, 40px)",
-                  height: "clamp(18px, 1.8vw, 40px)",
+                  width: "clamp(18px,1.6vw,34px)",
+                  height: "clamp(18px,1.6vw,34px)",
                 }}
               />
             </a>
@@ -219,9 +223,11 @@ export default function HomePage() {
             <button
               className="ml-2 cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-pink-500 hover:to-fuchsia-600"
               style={{
-                paddingInline: "clamp(10px, 0.9vw, 20px)",
-                paddingBlock: "clamp(6px, 0.7vw, 12px)",
-                fontSize: "clamp(13px, 1.2vw, 28px)",
+                /* paddings a poil plus compacts */
+                paddingInline: "clamp(8px,0.8vw,18px)",
+                paddingBlock: "clamp(5px,0.6vw,10px)",
+                /* was clamp(13px,1.2vw,28px) */
+                fontSize: "clamp(12px,1.05vw,24px)",
                 fontWeight: 800,
                 whiteSpace: "nowrap",
               }}
@@ -288,9 +294,10 @@ export default function HomePage() {
           <button
             className="absolute bottom-10 right-10 z-50 flex items-center justify-center rounded-full bg-white/20 shadow-lg transition-colors duration-200 hover:bg-white/40 border-white"
             style={{
-              width: "clamp(48px, 4.5vw, 80px)",
-              height: "clamp(48px, 4.5vw, 80px)",
-              borderWidth: "clamp(2px, 0.3vw, 4px)",
+              /* minus ~10% */
+              width: "clamp(44px,4vw,72px)",
+              height: "clamp(44px,4vw,72px)",
+              borderWidth: "clamp(2px,0.28vw,4px)",
             }}
             title="Help"
           >
@@ -301,8 +308,8 @@ export default function HomePage() {
               alt=""
               className="select-none"
               style={{
-                width: "clamp(24px, 2.2vw, 50px)",
-                height: "clamp(24px, 2.2vw, 50px)",
+                width: "clamp(22px,2vw,44px)",
+                height: "clamp(22px,2vw,44px)",
               }}
             />
           </button>
