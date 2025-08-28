@@ -3,9 +3,7 @@
 import Image from "next/image";
 import { useMemo } from "react";
 
-/* ============================================================
-   Podium config (assets, names, sizes, positions)
-============================================================ */
+/* ================= Podium config (assets, names, sizes, positions) ================ */
 
 const PODIUM_BG = "/pod.png";
 
@@ -15,11 +13,11 @@ const TOP3 = {
   third: { name: "@Retard Master", avatar: "/a3.png" },
 } as const;
 
-// Avatar sizes (fluid, desktop-first)
-const AV_SIZE_MAIN = "clamp(110px, 9vw, 180px)";
-const AV_SIZE_SIDE = "clamp(90px, 7.5vw, 150px)";
+// avatar sizes (slightly slimmer)
+const AV_SIZE_MAIN = "clamp(100px, 8.2vw, 160px)";
+const AV_SIZE_SIDE = "clamp(82px, 6.8vw, 135px)";
 
-// Avatar positions (percentages) — tuned for FHD/2K/4K
+// positions unchanged
 const AV_POS = {
   first: { left: "50%", top: "-47%" },
   second: { left: "17%", top: "-18%" },
@@ -38,9 +36,7 @@ const NAME_COLOR = {
   third: "text-orange-400",
 } as const;
 
-/* ============================================================
-   Rank icon (left list)
-============================================================ */
+/* ================= Rank icon (left list) ================ */
 
 function RankIcon({ rank }: { rank: number }) {
   if (rank === 1)
@@ -80,9 +76,7 @@ function RankIcon({ rank }: { rank: number }) {
   );
 }
 
-/* ============================================================
-   Leaderboard (main)
-============================================================ */
+/* ================= Leaderboard (main) ================ */
 
 export default function Leaderboard({
   closing,
@@ -91,7 +85,7 @@ export default function Leaderboard({
   closing: boolean;
   onClose: () => void;
 }) {
-  // Mocked dataset (backend will replace)
+  // mocked dataset (backend will replace)
   const data = useMemo(
     () =>
       Array.from({ length: 24 }).map((_, i) => ({
@@ -104,38 +98,38 @@ export default function Leaderboard({
 
   return (
     <div
-      className="absolute inset-x-0 z-20 mx-6 md:mx-10 lg:mx-16 xl:mx-24"
-      style={{ top: "clamp(120px, 12vh, 160px)" }}
+      className="absolute inset-x-0 z-20 mx-5 md:mx-8 lg:mx-14 xl:mx-20"
+      style={{ top: "clamp(108px, 11vh, 148px)" }} // slightly less top offset
     >
-      {/* Title (fluid) */}
+      {/* title */}
       <h2
         className="text-center font-extrabold tracking-wide drop-shadow"
         style={{
-          fontSize: "clamp(18px, 2.2vw, 32px)",
-          marginBottom: "clamp(14px, 1.2vw, 24px)",
+          fontSize: "clamp(16px, 2vw, 28px)",
+          marginBottom: "clamp(12px, 1vw, 20px)",
         }}
       >
         THE FASTEST CATS IN THE COMMUNITY
       </h2>
 
-      {/* Desktop-first grid (left list + right cards) */}
+      {/* grid */}
       <div
-        className={`grid grid-cols-12 gap-[clamp(12px,1.2vw,20px)] ${
+        className={`grid grid-cols-12 gap-[clamp(10px,1vw,18px)] ${
           closing ? "animate-fadeOutDown" : "animate-fadeInUp"
         }`}
       >
-        {/* ================ Left column: Ranking list ================ */}
+        {/* left list */}
         <section className="col-span-12 rounded-xl border border-white/20 bg-black/30 backdrop-blur-md shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_16px_36px_rgba(0,0,0,0.45)] lg:col-span-7">
-          <div className="m-[clamp(10px,1vw,16px)] rounded-lg bg-black/55 ring-1 ring-white/10">
-            {/* Header */}
-            <div className="flex items-center justify-between rounded-t-lg border-b border-white/15 px-[clamp(10px,1vw,16px)] py-[clamp(8px,0.8vw,12px)]">
+          <div className="m-[clamp(8px,0.9vw,14px)] rounded-lg bg-black/55 ring-1 ring-white/10">
+            {/* header */}
+            <div className="flex items-center justify-between rounded-t-lg border-b border-white/15 px-[clamp(10px,1vw,16px)] py-[clamp(6px,0.7vw,10px)]">
               <h3
                 className="font-extrabold"
-                style={{ fontSize: "clamp(16px,1.6vw,20px)" }}
+                style={{ fontSize: "clamp(15px,1.4vw,18px)" }}
               >
                 Full Rankings
               </h3>
-              <div className="relative w-[min(26rem,40vw)]">
+              <div className="relative w-[min(24rem,38vw)]">
                 <input
                   placeholder="Enter Wallet address..."
                   className="w-full rounded-md border border-white/25 bg-white/10 px-3 py-2 text-sm outline-none placeholder:text-white/60 focus:border-white/50"
@@ -144,50 +138,48 @@ export default function Leaderboard({
               </div>
             </div>
 
-            {/* Scrollable list (height tied to viewport) */}
+            {/* list */}
             <div
               className="overflow-y-auto"
-              style={{ maxHeight: "min(72vh, 900px)" }}
+              style={{ maxHeight: "min(70vh, 860px)" }}
             >
               <ul>
                 {data.map((row) => (
                   <li
                     key={row.rank}
-                    className="grid grid-cols-12 items-center gap-2 border-b border-white/12 px-[clamp(10px,1vw,16px)] py-[clamp(8px,0.9vw,12px)] hover:bg-white/5"
+                    className="grid grid-cols-12 items-center gap-2 border-b border-white/12 px-[clamp(10px,1vw,16px)] py-[clamp(7px,0.8vw,10px)] hover:bg-white/5"
                   >
-                    {/* Rank icon */}
                     <div className="col-span-1 flex justify-center">
                       <RankIcon rank={row.rank} />
                     </div>
 
-                    {/* Name + score (desktop) */}
                     <div className="col-span-7 min-w-0 md:col-span-8">
                       <div className="flex items-center gap-3">
                         <span
                           className="truncate font-extrabold tracking-wide"
-                          style={{ fontSize: "clamp(14px,1.2vw,17px)" }}
+                          style={{ fontSize: "clamp(13px,1.1vw,16px)" }}
                         >
                           {row.name}
                         </span>
                         <span
                           className="ml-auto hidden font-extrabold md:inline"
-                          style={{ fontSize: "clamp(13px,1.1vw,16px)" }}
+                          style={{ fontSize: "clamp(12px,1vw,15px)" }}
                         >
                           {row.score}
                         </span>
                       </div>
                       <div
                         className="text-white/80"
-                        style={{ fontSize: "clamp(11px,1vw,14px)" }}
+                        style={{ fontSize: "clamp(10px,0.95vw,13px)" }}
                       >
                         Rank #{row.rank}
                       </div>
                     </div>
 
-                    {/* Score (mobile/tablet) */}
+                    {/* score (mobile) */}
                     <div
                       className="col-span-4 text-right font-extrabold md:hidden"
-                      style={{ fontSize: "clamp(13px,1.1vw,16px)" }}
+                      style={{ fontSize: "clamp(12px,1vw,15px)" }}
                     >
                       {row.score}
                     </div>
@@ -198,20 +190,19 @@ export default function Leaderboard({
           </div>
         </section>
 
-        {/* ================ Right column: 2 info cards ================ */}
-        <aside className="col-span-12 flex h-full flex-col gap-[clamp(12px,1.2vw,20px)] lg:col-span-5">
-          {/* Card: Your rank */}
+        {/* right cards */}
+        <aside className="col-span-12 flex h-full flex-col gap-[clamp(10px,1vw,18px)] lg:col-span-5">
+          {/* your rank */}
           <div className="flex-1 rounded-xl border border-white/20 bg-black/30 backdrop-blur-md shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_16px_36px_rgba(0,0,0,0.45)]">
-            <div className="m-[clamp(10px,1vw,16px)] flex h-[calc(100%-clamp(20px,2vw,32px))] flex-col rounded-lg bg-black/55 p-[clamp(12px,1.2vw,20px)] ring-1 ring-white/10">
+            <div className="m-[clamp(8px,0.9vw,14px)] flex h-[calc(100%-clamp(18px,1.8vw,28px))] flex-col rounded-lg bg-black/55 p-[clamp(10px,1vw,18px)] ring-1 ring-white/10">
               <h4
-                className="mb-[clamp(12px,1.2vw,20px)] font-extrabold drop-shadow"
-                style={{ fontSize: "clamp(20px,2.2vw,32px)" }}
+                className="mb-[clamp(10px,1vw,16px)] font-extrabold drop-shadow"
+                style={{ fontSize: "clamp(18px,2vw,28px)" }}
               >
                 YOUR RANK: <span className="text-white">#79</span>
               </h4>
 
-              {/* Two-column stats */}
-              <div className="grid flex-1 grid-cols-2 gap-x-[clamp(16px,1.5vw,24px)] gap-y-[clamp(12px,1.2vw,20px)]">
+              <div className="grid flex-1 grid-cols-2 gap-x-[clamp(14px,1.3vw,22px)] gap-y-[clamp(10px,1vw,16px)]">
                 {[
                   ["TOTAL MILES RUN:", "8,685"],
                   ["CATS HOLD:", "4"],
@@ -224,7 +215,7 @@ export default function Leaderboard({
                     <div
                       className="underline underline-offset-4"
                       style={{
-                        fontSize: "clamp(12px,1.2vw,18px)",
+                        fontSize: "clamp(11px,1.05vw,16px)",
                         fontWeight: 800,
                       }}
                     >
@@ -233,7 +224,7 @@ export default function Leaderboard({
                     <div
                       className="mt-1 text-white"
                       style={{
-                        fontSize: "clamp(16px,1.8vw,24px)",
+                        fontSize: "clamp(15px,1.6vw,22px)",
                         fontWeight: 800,
                       }}
                     >
@@ -245,29 +236,28 @@ export default function Leaderboard({
             </div>
           </div>
 
-          {/* Card: Top 3 (podium) */}
+          {/* top 3 */}
           <div className="flex-1 rounded-xl border border-white/20 bg-black/30 backdrop-blur-md shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_16px_36px_rgba(0,0,0,0.45)]">
-            <div className="m-[clamp(10px,1vw,16px)] flex h-[calc(100%-clamp(20px,2vw,32px))] flex-col overflow-hidden rounded-lg bg-black/55 p-[clamp(12px,1.2vw,20px)] ring-1 ring-white/10">
+            <div className="m-[clamp(8px,0.9vw,14px)] flex h-[calc(100%-clamp(18px,1.8vw,28px))] flex-col overflow-hidden rounded-lg bg-black/55 p-[clamp(10px,1vw,18px)] ring-1 ring-white/10">
               <h4
-                className="mb-[clamp(8px,0.8vw,12px)] font-extrabold"
-                style={{ fontSize: "clamp(16px,1.8vw,24px)" }}
+                className="mb-[clamp(6px,0.7vw,10px)] font-extrabold"
+                style={{ fontSize: "clamp(15px,1.6vw,22px)" }}
               >
                 TOP 3
               </h4>
 
               <div className="relative min-h-0 flex-1">
-                {/* Podium aspect box anchored to bottom */}
-                <div className="absolute bottom-[-18%] left-1/2 aspect-[1350/586] w-[96%] -translate-x-1/2">
+                <div className="absolute bottom-[-18%] left-1/2 aspect-[1350/586] w-[95%] -translate-x-1/2">
                   <Image
                     src={PODIUM_BG}
                     alt=""
                     fill
-                    sizes="(min-width:1024px) 40vw, 90vw"
+                    sizes="(min-width:1024px) 38vw, 88vw"
                     className="pointer-events-none select-none object-contain object-center"
                     priority
                   />
 
-                  {/* Names */}
+                  {/* names */}
                   <NameAt
                     left={NAME_POS.second.left}
                     top={NAME_POS.second.top}
@@ -292,7 +282,7 @@ export default function Leaderboard({
                     {TOP3.third.name}
                   </NameAt>
 
-                  {/* Avatars */}
+                  {/* avatars */}
                   <AvatarAt
                     left={AV_POS.second.left}
                     top={AV_POS.second.top}
@@ -318,10 +308,10 @@ export default function Leaderboard({
         </aside>
       </div>
 
-      {/* Close button (optional) */}
+      {/* close */}
       <button
         onClick={onClose}
-        className="ml-auto mt-[clamp(12px,1.2vw,16px)] block rounded-md border border-white/25 bg-white/10 px-3 py-1.5 text-xs hover:bg-white/20"
+        className="ml-auto mt-[clamp(10px,1vw,14px)] block rounded-md border border-white/25 bg-white/10 px-3 py-1.5 text-xs hover:bg-white/20"
       >
         Close
       </button>
@@ -329,9 +319,7 @@ export default function Leaderboard({
   );
 }
 
-/* ============================================================
-   Presentation helpers (absolute-positioned name/avatar)
-============================================================ */
+/* ================= Presentation helpers ================ */
 
 function NameAt({
   left,
@@ -351,7 +339,7 @@ function NameAt({
         style={{
           WebkitTextStroke: "1px rgba(0,0,0,.35)",
           fontWeight: 800,
-          fontSize: "clamp(12px,1.4vw,20px)",
+          fontSize: "clamp(11px,1.25vw,18px)",
         }}
       >
         {children}

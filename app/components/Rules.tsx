@@ -42,15 +42,15 @@ export default function Rules({
           className="h-auto w-full select-none object-contain"
         />
 
-        {/* --- Close button (always clickable, above content) --- */}
+        {/* --- Close button (remonté) --- */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
           className="
-            absolute -right-6 top-16 z-20 grid h-12 w-12 place-items-center
+            absolute -right-5 top-10 z-20 grid h-11 w-11 place-items-center
             cursor-pointer rounded-full
-            bg-white/18 text-3xl text-white leading-none
+            bg-white/18 text-2xl text-white leading-none
             ring-1 ring-white/50 backdrop-blur-sm
             hover:bg-white/28
           "
@@ -61,14 +61,14 @@ export default function Rules({
         {/* --- Text overlay --- */}
         <div
           className="absolute inset-0 z-10 flex flex-col items-center text-center text-white"
-          style={{ paddingTop: "18%", paddingLeft: "8%" }}
+          style={{ paddingTop: "17%", paddingLeft: "7%" }}
         >
-          {/* Title (2 lines, no extra spacing) */}
+          {/* Title (slightly smaller) */}
           <h2
             id="rules-title"
             className="m-0 p-0 drop-shadow-[0_2px_6px_rgba(0,0,0,.5)]"
             style={{
-              fontSize: "clamp(52px,6vw,80px)",
+              fontSize: "clamp(44px,5.2vw,70px)",
               lineHeight: 0.9,
               color: "rgba(217,217,217,0.3)",
               WebkitTextStroke: "1px white",
@@ -78,7 +78,7 @@ export default function Rules({
             <br />
             <span
               style={{
-                fontSize: "clamp(32px,4vw,50px)",
+                fontSize: "clamp(28px,3.5vw,44px)",
                 color: "rgba(217,217,217,0.3)",
                 WebkitTextStroke: "1px white",
                 display: "inline-block",
@@ -89,12 +89,12 @@ export default function Rules({
             </span>
           </h2>
 
-          {/* Rules list */}
+          {/* Rules list (smaller font) */}
           <ul
-            className="space-y-4 font-bold text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,.6)]"
+            className="space-y-3 font-bold text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,.6)]"
             style={{
-              fontSize: "clamp(16px,1.5vw,22px)",
-              maxWidth: "70ch",
+              fontSize: "clamp(14px,1.3vw,19px)",
+              maxWidth: "68ch",
               textAlign: "left",
             }}
           >
@@ -126,16 +126,16 @@ export default function Rules({
             </li>
           </ul>
 
-          {/* CTA button */}
-          <div className="mt-8 flex w-full justify-start px-[15%]">
+          {/* CTA button (slightly smaller padding/font) */}
+          <div className="mt-6 flex w-full justify-start px-[14%]">
             <a
               href="https://magiceden.io"
               target="_blank"
               rel="noreferrer"
               className="
                 inline-flex items-center gap-2
-                rounded-md border border-white/35 bg-white/10 px-6 py-3
-                text-base font-extrabold text-white
+                rounded-md border border-white/35 bg-white/10 px-5 py-2.5
+                text-sm font-extrabold text-white
                 backdrop-blur-sm hover:bg-white/20
               "
             >
