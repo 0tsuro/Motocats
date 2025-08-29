@@ -36,7 +36,7 @@ export default function Rules({
           src="/popup.png"
           alt="Motocat Rules"
           width={1600}
-          height={900}
+          height={800}
           draggable={false}
           priority
           className="h-auto w-full select-none object-contain"
@@ -63,7 +63,7 @@ export default function Rules({
           className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white"
           style={{ paddingTop: "17%", paddingLeft: "7%" }}
         >
-          <div className="flex ml-[px]">
+          <div className="flex ml-10">
             <Image
               className="mb-8"
               src="/logo.png"
