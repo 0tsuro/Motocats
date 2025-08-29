@@ -28,12 +28,12 @@ export default function Rules({
     >
       {/* Animated container */}
       <div
-        className={`relative mx-auto max-w-4xl w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%]
+        className={`relative mx-auto max-w-4xl w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%] right-13.5
           ${closing ? "animate-fadeOutDown" : "animate-fadeInUp"}`}
       >
         {/* --- Background PNG --- */}
         <Image
-          src="/rulesbg.png"
+          src="/popup.png"
           alt="Motocat Rules"
           width={1600}
           height={900}
@@ -60,18 +60,18 @@ export default function Rules({
 
         {/* --- Text overlay --- */}
         <div
-          className="absolute inset-0 z-10 flex flex-col items-center text-center text-white"
+          className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white"
           style={{ paddingTop: "17%", paddingLeft: "7%" }}
         >
-          {/* Title (slightly smaller) */}
-          <Image
-            className="mb-8"
-            src="/logo.png"
-            width={500}
-            height={500}
-            alt="Motocats racing club"
-          />
-
+          <div className="flex ml-[px]">
+            <Image
+              className="mb-8"
+              src="/logo.png"
+              width={450}
+              height={450}
+              alt="Motocats racing club"
+            />
+          </div>
           {/* Rules list (smaller font) */}
           <ul
             className="space-y-3 font-bold text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,.6)]"
