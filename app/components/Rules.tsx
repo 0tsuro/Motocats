@@ -28,7 +28,7 @@ export default function Rules({
     >
       {/* Animated container */}
       <div
-        className={`relative mx-auto max-w-[40%] w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%] right-13.5
+        className={`relative mx-auto max-w-[45%] w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%] right-13.5
           ${closing ? "animate-fadeOutDown" : "animate-fadeInUp"}`}
       >
         {/* --- Background PNG --- */}
