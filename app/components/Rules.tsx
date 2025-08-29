@@ -48,14 +48,14 @@ export default function Rules({
           onClick={onClose}
           aria-label="Close"
           className="
-            absolute -right-5 top-10 z-20 grid h-11 w-11 place-items-center
+            absolute -right-10 top-8 z-20 grid h-11 w-11 place-items-center border-2 border-white
             cursor-pointer rounded-full
             bg-white/18 text-2xl text-white leading-none
             ring-1 ring-white/50 backdrop-blur-sm
-            hover:bg-white/28
+            hover:bg-white/28 p-3
           "
         >
-          ×
+          X
         </button>
 
         {/* --- Text overlay --- */}
@@ -64,30 +64,13 @@ export default function Rules({
           style={{ paddingTop: "17%", paddingLeft: "7%" }}
         >
           {/* Title (slightly smaller) */}
-          <h2
-            id="rules-title"
-            className="m-0 p-0 drop-shadow-[0_2px_6px_rgba(0,0,0,.5)]"
-            style={{
-              fontSize: "clamp(44px,5.2vw,70px)",
-              lineHeight: 0.9,
-              color: "rgba(217,217,217,0.3)",
-              WebkitTextStroke: "1px white",
-            }}
-          >
-            MOTOCAT
-            <br />
-            <span
-              style={{
-                fontSize: "clamp(28px,3.5vw,44px)",
-                color: "rgba(217,217,217,0.3)",
-                WebkitTextStroke: "1px white",
-                display: "inline-block",
-                transform: "translateY(-2px)",
-              }}
-            >
-              RACING CLUB
-            </span>
-          </h2>
+          <Image
+            className="mb-8"
+            src="/logo.png"
+            width={500}
+            height={500}
+            alt="Motocats racing club"
+          />
 
           {/* Rules list (smaller font) */}
           <ul

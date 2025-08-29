@@ -57,11 +57,11 @@ export default function HomePage() {
       {/* ===== Background GIF (under everything) ===== */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bg.gif" // ton GIF dans /public
+          src="/bg.gif" // place le GIF dans /public/bg.gif
           alt=""
           fill
           priority
-          unoptimized // garde l’animation active
+          unoptimized // indispensable pour garder l’animation GIF
           className="object-cover"
         />
       </div>
@@ -73,7 +73,7 @@ export default function HomePage() {
       <header
         className={`absolute inset-x-0 top-0 z-40 transition-[filter] duration-300 ${
           isRulesOpen
-            ? "pointer-events-none blur-3xl] [filter:brightness(0.9)_opacity(0.1)]"
+            ? "pointer-events-none blur-6xl] [filter:brightness(0.9)_opacity(0.1)]"
             : ""
         }`}
       >
@@ -91,6 +91,7 @@ export default function HomePage() {
                   fontSize: "clamp(26px,3vw,64px)",
                   color: "#B8AEC6",
                   WebkitTextStroke: "2px white",
+                  textTransform: "none",
                 }}
               >
                 motocats
@@ -141,12 +142,13 @@ export default function HomePage() {
               target="_blank"
               rel="noreferrer"
               className="transition hover:bg-clip-text hover:text-transparent hover:from-pink-500 hover:to-fuchsia-600"
+              aria-label="Magic Eden"
             >
               <Image
                 src="/me.svg"
-                alt="Magic Eden"
                 width={34}
                 height={34}
+                alt="Magic Eden"
                 className="select-none"
               />
             </a>
@@ -156,12 +158,13 @@ export default function HomePage() {
               target="_blank"
               rel="noreferrer"
               className="transition hover:bg-clip-text hover:text-transparent hover:from-pink-500 hover:to-fuchsia-600"
+              aria-label="Twitter"
             >
               <Image
                 src="/x.svg"
-                alt="Twitter"
                 width={26}
                 height={26}
+                alt="Twitter"
                 className="select-none"
               />
             </a>
@@ -171,16 +174,18 @@ export default function HomePage() {
               target="_blank"
               rel="noreferrer"
               className="transition hover:bg-clip-text hover:text-transparent hover:from-pink-500 hover:to-fuchsia-600"
+              aria-label="Discord"
             >
               <Image
                 src="/discord.svg"
-                alt="Discord"
                 width={34}
                 height={34}
+                alt="Discord"
                 className="select-none"
               />
             </a>
 
+            {/* Connect Wallet CTA */}
             <button
               className="ml-2 cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-pink-500 hover:to-fuchsia-600"
               style={{
@@ -188,15 +193,17 @@ export default function HomePage() {
                 paddingBlock: "clamp(5px,0.6vw,10px)",
                 fontSize: "clamp(12px,1.05vw,24px)",
                 fontWeight: 800,
+                whiteSpace: "nowrap",
               }}
+              aria-label="Connect wallet"
             >
-              CONNECT WALLET
+              <span className="whitespace-nowrap">CONNECT WALLET</span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Overlay under panels */}
+      {/* Overlay under panels (click to close) */}
       {active !== "none" && (
         <div
           className="absolute inset-0 z-20 bg-black/20"
@@ -219,7 +226,7 @@ export default function HomePage() {
         {active === "rules" && (
           <>
             <div
-              className={`fixed inset-0 z-[35] backdrop-blur-3xl bg-white/5 ${
+              className={`fixed inset-0 z-[35] backdrop-blur-sm bg-white/5 ${
                 closing ? "animate-fadeOutDown" : "animate-fadeInUp"
               }`}
             />
@@ -234,27 +241,28 @@ export default function HomePage() {
         )}
       </div>
 
-      {/* Help button */}
+      {/* Help button (only on home) */}
       {active === "none" && (
         <button
-          className="absolute bottom-10 right-10 z-50 flex items-center justify-center rounded-full bg-white/20 shadow-lg hover:bg-white/40 border-white"
+          className="absolute bottom-10 right-10 z-50 flex items-center justify-center rounded-full bg-white/20 shadow-lg transition-colors duration-200 hover:bg-white/40 border-white"
           style={{
             width: "clamp(44px,4vw,72px)",
             height: "clamp(44px,4vw,72px)",
             borderWidth: "clamp(2px,0.28vw,4px)",
           }}
+          title="Help"
         >
           <Image
             src="/help.png"
-            alt=""
             width={44}
             height={44}
+            alt=""
             className="select-none"
           />
         </button>
       )}
 
-      {/* Radio player */}
+      {/* Radio player (mounted always; UI visible only on home) */}
       <div
         className={`transition-opacity duration-200 ${
           active === "none" ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -268,6 +276,48 @@ export default function HomePage() {
               name: "Drumbase.Space",
               url: "https://radio.drumbase.space/radio/8000/mobile.mp3",
             },
+            { name: "USA Dance Radio", url: "https://stream.rcast.net/66781" },
+            {
+              name: "San Francisco's 70s HITS",
+              url: "https://a1.asurahosting.com:10990/radio.mp3",
+            },
+            {
+              name: "RNB Radio",
+              url: "https://streaming.silvacast.com/RNBRADIO.mp3",
+            },
+            {
+              name: "Capital FM",
+              url: "https://media-ice.musicradio.com/CapitalMP3",
+            },
+            {
+              name: "80s Alive",
+              url: "https://stream.80sa.live/80s-alive.mp3",
+            },
+            {
+              name: "Smooth",
+              url: "https://media-ice.musicradio.com/SmoothUKMP3",
+            },
+            { name: "1 Mix EDM", url: "https://fr2.1mix.co.uk:8060/stream/6/" },
+            {
+              name: "Island FM",
+              url: "https://n05a-eu.rcs.revma.com/epatpyebanzuv?rj-ttl=5&rj-tok=AAABlWR1RR4AwW-xxUgdXWhZpg",
+            },
+            {
+              name: "Athens Party RNB",
+              url: "https://ice.onestreaming.com/athenspartyrnb",
+            },
+            {
+              name: "Hits Radio",
+              url: "https://26343.live.streamtheworld.com/977_HITSAAC_SC?dist=onlineradiobox",
+            },
+            { name: "TalkSPORT", url: "https://radio.talksport.com/stream" },
+            {
+              name: "Original 106",
+              url: "https://listen-nation.sharp-stream.com/original106.mp3",
+            },
+            { name: "StarboxRNB", url: "https://stream.rcast.net/280259" },
+            { name: "Liquid DNB", url: "https://free.rcast.net/283432" },
+            { name: "Bedlam DnB", url: "https://free.rcast.net/255460" },
           ]}
         />
       </div>
