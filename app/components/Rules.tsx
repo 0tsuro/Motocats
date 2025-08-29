@@ -28,7 +28,7 @@ export default function Rules({
     >
       {/* Animated container */}
       <div
-        className={`relative mx-auto max-w-[45%] w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%] right-13.5
+        className={`relative mx-auto max-w-[40%] w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%] right-13.5
           ${closing ? "animate-fadeOutDown" : "animate-fadeInUp"}`}
       >
         {/* --- Background PNG --- */}
@@ -67,8 +67,8 @@ export default function Rules({
             <Image
               className="mb-8"
               src="/logo.png"
-              width={450}
-              height={450}
+              width={350}
+              height={350}
               alt="Motocats racing club"
             />
           </div>
@@ -76,7 +76,7 @@ export default function Rules({
           <ul
             className="space-y-3 font-bold text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,.6)]"
             style={{
-              fontSize: "clamp(14px,1.3vw,19px)",
+              fontSize: "clamp(10px,1.1vw,13px)",
               maxWidth: "68ch",
               textAlign: "left",
             }}
