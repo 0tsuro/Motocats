@@ -28,15 +28,15 @@ export default function Rules({
     >
       {/* Animated container */}
       <div
-        className={`relative mx-auto max-w-4xl w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%] right-13.5
+        className={`relative mx-auto max-w-[40%] w-[62%] sm:w-[58%] md:w-[54%] lg:w-[50%] right-13.5
           ${closing ? "animate-fadeOutDown" : "animate-fadeInUp"}`}
       >
         {/* --- Background PNG --- */}
         <Image
           src="/popup.png"
           alt="Motocat Rules"
-          width={1600}
-          height={800}
+          width={1400}
+          height={600}
           draggable={false}
           priority
           className="h-auto w-full select-none object-contain"

@@ -14,7 +14,7 @@ import Rules from "@/app/components/Rules";
 
 /* Shared nav link style */
 const navLink =
-  "relative cursor-pointer whitespace-nowrap transition-colors duration-200 bg-gradient-to-r from-pink-500 to-fuchsia-600 bg-clip-text text-white hover:text-transparent";
+  "relative cursor-pointer whitespace-nowrap transition-colors duration-200 bg-gradient-to-r from-[#A441FF] to-[#5D2095] bg-clip-text text-white hover:text-transparent";
 
 /* Sections type */
 type Section =
@@ -141,7 +141,7 @@ export default function HomePage() {
               href="https://magiceden.io"
               target="_blank"
               rel="noreferrer"
-              className="transition hover:bg-clip-text hover:text-transparent hover:from-pink-500 hover:to-fuchsia-600"
+              className="transition hover:bg-clip-text"
               aria-label="Magic Eden"
             >
               <Image
@@ -157,7 +157,7 @@ export default function HomePage() {
               href="https://twitter.com/motocats"
               target="_blank"
               rel="noreferrer"
-              className="transition hover:bg-clip-text hover:text-transparent hover:from-pink-500 hover:to-fuchsia-600"
+              className="transition hover:bg-clip-text"
               aria-label="Twitter"
             >
               <Image
@@ -173,7 +173,7 @@ export default function HomePage() {
               href="https://discord.gg/motocats"
               target="_blank"
               rel="noreferrer"
-              className="transition hover:bg-clip-text hover:text-transparent hover:from-pink-500 hover:to-fuchsia-600"
+              className=""
               aria-label="Discord"
             >
               <Image
@@ -187,7 +187,7 @@ export default function HomePage() {
 
             {/* Connect Wallet CTA */}
             <button
-              className="ml-2 cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-pink-500 hover:to-fuchsia-600"
+              className="ml-2 cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-[#A441FF] to-[#5D2095]"
               style={{
                 paddingInline: "clamp(8px,0.8vw,18px)",
                 paddingBlock: "clamp(5px,0.6vw,10px)",
